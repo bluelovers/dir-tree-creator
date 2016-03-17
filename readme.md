@@ -8,4 +8,15 @@
   `var root = '/path/to/root';`  
   `var paths_to_ignore = ['/path1/to/ignore', '/path2/to/ignore'];`  
   `dir_tree(root);`  
-  `dir_tree(root, paths_to_ignore);`
+  `dir_tree(root, paths_to_ignore);`  
+  
+<h5>example</h5>
+`root`  
+`├─┬ dir1`  
+`│ └── file1.js`  
+`├─┬ dir2`  
+`│ ├─┬ dir3`  
+`│ │ └── file3.js`  
+`│ └── file2.js`  
+`├── file1-under-root.js`  
+`└── file2-under-root.js`  
