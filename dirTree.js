@@ -40,7 +40,7 @@
   }
 
   module.exports = function(root_path, paths_to_ignore) {
-    var root_label = 'root(' + root_path + ')';
+    var root_label = 'root';
     var dir_tree = {
       label: root_label,
       nodes: []
