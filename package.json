@@ -1,0 +1,28 @@
+{
+  "name": "dir-tree-creator",
+  "version": "0.0.1",
+  "description": "simple directory tree structure creator in node js",
+  "main": "dirTree.js",
+  "dependencies": {
+    "archy": "^1.0.0",
+    "fs-extra": "^0.26.7"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mawni/dir-tree-nodejs.git"
+  },
+  "keywords": [
+    "directory",
+    "tree",
+    "file"
+  ],
+  "author": "Mawni Maghsoudlou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mawni/dir-tree-nodejs/issues"
+  },
+  "homepage": "https://github.com/mawni/dir-tree-nodejs#readme"
+}
