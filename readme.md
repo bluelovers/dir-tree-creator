@@ -1,5 +1,7 @@
 <p>dir-tree-creator is a node.js module that simply creates an npm like directory structure of provided root path and outputs it to the console. It also accepts an array of paths to ignore as an optional argument.</p>
 
+<a href="https://www.npmjs.com/package/dir-tree-creator" target="_blank">on npm</a>
+
 <h5>install</h5>
   <p>use `npm install dir-tree-creator` to install the module. if you want to add it to your application dependencies, simply run `npm install --save dir-tree-creator`.</p>
 
