@@ -50,7 +50,7 @@ dir_tree(root_path, 'my root label', paths_to_ignore, function(final_dir_tree) {
 });
 ```
 <h6>exp2 result (excluded dir1 as an example):</h6>
-```javascript
+```
 my root label  
 ├─┬ dir2 
 │ ├─┬ dir3
