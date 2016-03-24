@@ -1,7 +1,8 @@
 <p>dir-tree-creator is a node.js module that simply creates an npm like directory tree structure of the given path and returns the string representation of it. It also accepts an array of paths to ignore as an optional argument.</p>
 
 <h5>Install</h5>
-  <p>use `npm install dir-tree-creator` to install the module. if you want to add it to your application dependencies, simply run `npm install --save dir-tree-creator`.</p>
+
+Use `npm install dir-tree-creator` to install the module. If you want to add it to your application dependencies, simply run `npm install --save dir-tree-creator`.
 
 <h5>Function Signature</h5>
 ```javascript
@@ -14,7 +15,7 @@ paths_to_ignore: list of paths to ignore [type: array]
 callback function: it takes one argument, the final tree and returns the string representation of it [type: function]
 	
 <h5>Usage</h5>
-  <p>As of version 0.0.2, the function header changed. In the new version, the function takes 4 arguments. First argument is the root path. Second argument is the root label. The third argument is the optional array of paths to ignore. If there is no path to ignore, we set that to `null`. Finally, the fourth argument is the callback function that contains the string representation of the final directory tree. The string representation can be outputted to the console, or written to a file or whatever else we want to do with it.</p>
+<p>As of version 0.0.2, the function header changed. In the new version, the function takes 4 arguments. First argument is the root path. Second argument is the root label. The third argument is the optional array of paths to ignore. If there is no path to ignore, we set that to `null`. Finally, the fourth argument is the callback function that contains the string representation of the final directory tree. The string representation can be outputted to the console, or written to a file or whatever else we want to do with it.</p>
 
 <h5>Examples</h5>
 
