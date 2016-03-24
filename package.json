@@ -1,7 +1,7 @@
 {
   "name": "dir-tree-creator",
   "version": "0.0.1",
-  "description": "simple directory tree structure creator in node js",
+  "description": "simple directory tree structure creator based on the given root path",
   "main": "dirTree.js",
   "dependencies": {
     "archy": "^1.0.0",

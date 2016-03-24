@@ -39,13 +39,12 @@
     }
   }
 
-  module.exports = function(root_path, paths_to_ignore) {
-    var root_label = 'root';
+  module.exports = function(root_path, root_label, paths_to_ignore, cb) {
     var dir_tree = {
       label: root_label,
       nodes: []
     };
-    if (paths_to_ignore === undefined) {
+    if (paths_to_ignore === undefined || paths_to_ignore === null) {
       fs.walk(root_path).on('data', function(item) {
         if (item.stats.isDirectory() && item.path !== root_path) {
           parent_dir = path.parse(item.path).dir;
@@ -63,9 +62,9 @@
             }
         }
       }).on('end', function() {
-        console.log(archy(dir_tree));
+          cb(archy(dir_tree));
       }); 
-    } else {
+    } else if (paths_to_ignore !== undefined && paths_to_ignore !== null) {
         fs.walk(root_path).on('data', function(item) {
           if (item.stats.isDirectory() && item.path !== root_path && paths_to_ignore.indexOf(item.path) === -1) {
             parent_dir = path.parse(item.path).dir;
@@ -83,7 +82,7 @@
             }
           }
         }).on('end', function() {
-          console.log(archy(dir_tree));
+            cb(archy(dir_tree));
         }); 
     }
   };
