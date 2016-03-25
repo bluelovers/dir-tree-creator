@@ -4,38 +4,36 @@
   var archy = require('archy');
   
   function add_dir_to_tree(tree, parent_dir_to_find, dir_to_add) {
-    var i;
     if (parent_dir_to_find === tree.label) {
       tree.nodes.push({
         label: dir_to_add,
         nodes: []
       });
     } else {
-        for (i = 0; i < tree.nodes.length; i += 1) {
-          if (typeof tree.nodes[i] === 'object' && tree.nodes[i].label === parent_dir_to_find) {
-            tree.nodes[i].nodes.push({
+        tree.nodes.forEach(function(t_node) {
+          if (typeof t_node === 'object' && t_node.label === parent_dir_to_find) {
+            t_node.nodes.push({
               label: dir_to_add,
               nodes: []
             });
-          } else if (typeof tree.nodes[i] === 'object' && tree.nodes[i].label !== parent_dir_to_find) {
-              add_dir_to_tree(tree.nodes[i], parent_dir_to_find, dir_to_add);
+          } else if (typeof t_node === 'object' && t_node.label !== parent_dir_to_find) {
+              add_dir_to_tree(t_node, parent_dir_to_find, dir_to_add);
           }
-      }
+        });
     }
   }
 
   function add_file_to_tree(tree, parent_dir_to_find, file_to_add) {
-    var i;
     if (parent_dir_to_find === tree.label) {
       tree.nodes.push(file_to_add);
     } else {
-        for (i = 0; i < tree.nodes.length; i += 1) {
-          if (typeof tree.nodes[i] === 'object' && tree.nodes[i].label === parent_dir_to_find) {
-            tree.nodes[i].nodes.push(file_to_add);
-          } else if (typeof tree.nodes[i] === 'object' && tree.nodes[i].label !== parent_dir_to_find) {
-              add_file_to_tree(tree.nodes[i], parent_dir_to_find, file_to_add);
+        tree.nodes.forEach(function(t_node) {
+          if (typeof t_node === 'object' && t_node.label === parent_dir_to_find) {
+            t_node.nodes.push(file_to_add);
+          } else if (typeof t_node === 'object' && t_node.label !== parent_dir_to_find) {
+              add_file_to_tree(t_node, parent_dir_to_find, file_to_add);
           }
-        }
+        });
     }
   }
 
