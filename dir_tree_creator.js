@@ -26,9 +26,9 @@ function add_node_to_tree(tree, parent_dir_to_find, node_to_add) {
 }
 
 function dir_tree(opts, cb) {
-  const def_ignore = ['**/node_modules', '**/node_modules/**', '**/.git', '**/.git/**'];
+  const def_ignore = ['**/node_modules', '**/.git'];
   opts.label = opts.label ? opts.label : path.basename(opts.root);
-  opts.ignore = (opts.ignore && Array.isArray(opts.ignore) && opts.ignore.length > 0) ? opts.ignore.concat(def_ignore) : def_ignore;
+  opts.ignore = (opts.ignore && Array.isArray(opts.ignore)) ? opts.ignore.concat(def_ignore) : def_ignore;
   var filter = thru.obj(function(item, enc, next) {
     if (!match(opts.ignore, item.path)) this.push(item);
     next();
@@ -51,7 +51,7 @@ function dir_tree(opts, cb) {
       }
     }
   }).on('end', () => {
-    return cb(null, archy(tree));
+    return cb(null, archy(tree).trim());
   });
 }
 
