@@ -15,15 +15,13 @@ Please use `npm install dir-tree-creator`.
  * `options` `{Object}`
   
   * `root` `{String}` *root path*
-  * `label` `{String}` (optional) *label for the root node of the directory tree; if nothing specified, then the root path's `basename` will be used.*
+  * `label` `{String}` (optional) *label for the root node of the directory tree; if nothing specified, then the root path's basename will be used.*
   * `ignore` `{Array}` (optional) *an array of [anymatch](https://github.com/es128/anymatch) patterns to ignore. By default, `node_modules` and `.git` are ignored.*
 
  * `cb` `{Function}`
 
   * `err` `{Error | null}`
   * `dirtree` `{String}` String representation of the directory structure
-
-####Examples
 
 ```javascript
 const dir_tree = require('dir-tree-creator');
@@ -50,8 +48,8 @@ your label
 │ └── file0.js  
 ├─┬ dir1
 │ ├─┬ dir2  
-│ │ └── file3.js  
-│ └── file2.md 
+│ │ └── file2.js  
+│ └── file1.md 
 ├── file-under-root.js
 └── .gitignore  
 ```
