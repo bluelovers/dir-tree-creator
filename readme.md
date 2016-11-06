@@ -29,7 +29,7 @@ const dir_tree = require('dir-tree-creator');
 var opts = {
   root: '/path/to/root/directory',
   label: 'your label',
-  ignore: ['**/test', '**/test/**'] // ignore test dir and everything in it
+  ignore: [/foo.js$/, '**/test'] // ignore foo.js and test dir
 };
 
 dir_tree(opts, (er, tree) => {
