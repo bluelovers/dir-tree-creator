@@ -24,7 +24,7 @@ function add_node_to_tree(tree, parent_dir, node_to_add) {
   }
 }
 
-function dir_tree(opts, cb) {
+function dir_tree_creator(opts, cb) {
   if (typeof opts !== 'object') {
     return cb(new TypeError(`'options' parameter must be of type object.`));
   }
@@ -48,14 +48,11 @@ function dir_tree(opts, cb) {
         }
         return callback();
       }, (er) => {
-        if (er) {
-          return cb(er);
-        } else {
-          return cb(null, archy(tree).trim());
-        }
+        if (er) return cb(er);
+        return cb(null, archy(tree).trim());
       });
     }
   });
 }
 
-module.exports = dir_tree;
+module.exports = dir_tree_creator;
