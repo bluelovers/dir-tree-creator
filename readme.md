@@ -14,9 +14,9 @@ Please use `npm install dir-tree-creator`.
 
  * `options` `{Object}`
   
-  * `root` `{String}` *root path*
-  * `label` `{String}` (optional) *label for the root node of the directory tree; if nothing specified, then the root path's basename will be used.*
-  * `ignore` `{Array}` (optional) *an array of [anymatch](https://github.com/es128/anymatch) patterns to ignore. By default, `node_modules` and `.git` are ignored.*
+  * `root` `{String}` root path
+  * `label` `{String}` *(optional)* label for the root node of the directory tree; if nothing specified, then the root path's basename will be used.
+  * `ignore` `{Array}` *(optional)* an array of [anymatch](https://github.com/es128/anymatch) patterns to ignore. By default, `node_modules` and `.git` are ignored.
 
  * `cb` `{Function}`
 
