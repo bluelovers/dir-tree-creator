@@ -1,73 +1,58 @@
-<p>dir-tree-creator is a node.js module that simply creates an npm like directory tree structure of the given path and returns the string representation of it. It also accepts an array of paths to ignore as an optional argument.</p>
+#dir-tree-creator
 
-<h5>Install</h5>
+[![npm](https://img.shields.io/npm/v/dir-tree-creator.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/dir-tree-creator)
 
-Use `npm install dir-tree-creator` to install the module. If you want to add it to your application dependencies, simply run `npm install --save dir-tree-creator`.
+dir-tree-creator is a tiny module that creates an npm like directory tree structure of the given path and returns the string representation of it.
 
-<h5>Function Signature</h5>
+####Install
+
+Please use `npm install dir-tree-creator`.
+
+####API
+
+**dirtree(options, cb)**
+
+ * `options` `{Object}`
+  
+  * `root` `{String}` *root path*
+  * `label` `{String}` (optional) *label for the root node of the directory tree; if nothing specified, then the root path's `basename` will be used.*
+  * `ignore` `{Array}` (optional) *an array of [anymatch](https://github.com/es128/anymatch) patterns to ignore. By default, `node_modules` and `.git` are ignored.*
+
+ * `cb` `{Function}`
+
+  * `err` `{Error | null}`
+  * `dirtree` `{String}` String representation of the directory structure
+
+####Examples
+
 ```javascript
-var dir_tree = require('dir-tree-creator');
-dir_tree(root_path, root_label, paths_to_ignore, callback)
-```
-root_path: path to root directory [type: string]  
-root_label: label for the root node of the directory tree [type: string]  
-paths_to_ignore: list of paths to ignore [type: array]  
-callback function: it takes one argument, the final tree and returns the string representation of it [type: function]
-	
-<h5>Usage</h5>
+const dir_tree = require('dir-tree-creator');
 
-As of version 0.0.2, the function header changed. In the new version, the function takes 4 arguments. First argument is the root path. Second argument is the root label. The third argument is the optional array of paths to ignore. If there is no path to ignore, we set that to `null`. Finally, the fourth argument is the callback function that contains the string representation of the final directory tree. The string representation can be outputted to the console, or written to a file or whatever else we want to do with it.
+var opts = {
+  root: '/path/to/root/directory',
+  label: 'your label',
+  ignore: ['**/test', '**/test/**'] // ignore test dir and everything in it
+};
 
-<h5>Examples</h5>
-
-<h6>exp1: output to the console with nothing to ignore</h6>
-```javascript
-var dir_tree = require('dir-tree-creator');
-var root_path = '/path/to/root/directory';
-dir_tree(root_path, 'my root label', null, function(final_dir_tree) {
-  console.log(final_dir_tree);
+dir_tree(opts, (er, tree) => {
+  if (er) {
+    console.error(er);
+  } else {
+    console.log(tree);
+  }
 });
-```	
-<h6>exp1 result:</h6>
 ```
-my root label  
-├─┬ dir1  
-│ └── file1.js  
-├─┬ dir2  
-│ ├─┬ dir3  
+
+#####Sample output
+```
+your label
+├─┬ dir0
+│ └── file0.js  
+├─┬ dir1
+│ ├─┬ dir2  
 │ │ └── file3.js  
-│ └── file2.js 
-├── file1-under-root.js  
-└── file2-under-root.js  
-```	
-<h6>exp2: output to the console with paths to ignore</h6>
-```javascript
-var dir_tree = require('dir-tree-creator');
-var root_path = '/path/to/root/directory';
-var paths_to_ignore = ['/path1/to/ignore', '/path2/to/ignore'];
-dir_tree(root_path, 'my root label', paths_to_ignore, function(final_dir_tree) {
-  console.log(final_dir_tree);
-});
+│ └── file2.md 
+├── file-under-root.js
+└── .gitignore  
 ```
-<h6>exp2 result (excluded dir1 as an example):</h6>
-```
-my root label  
-├─┬ dir2 
-│ ├─┬ dir3
-│ │ └── file3.js  
-│ └── file2.js 
-├── file1-under-root.js  
-└── file2-under-root.js  
-```
-<h6>exp3: write to a file</h6>
-```javascript
-var fs = require('fs');
-var dir_tree = require('dir-tree-creator');
-var root_path = '/path/to/root/directory';
-dir_tree(root_path, 'my root label', null, function(final_dir_tree) {
-  fs.writeFile('/dir-tree-structure.txt', final_dir_tree, 'utf8', function(err) {
-    if (err) throw err;
-    console.log('dir tree structure saved successfully');
-  });
-});
-```
+
