@@ -2,22 +2,22 @@
   "name": "dir-tree-creator",
   "version": "2.0.0",
   "description": "simple directory tree structure creator based on the given root path",
-  "main": "dir_tree_creator.js",
+  "main": "dir-tree-creator.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mawni/dir-tree-nodejs.git"
+    "url": "git+https://github.com/manidlou/dir-tree-nodejs.git"
   },
   "keywords": [
     "directory",
     "tree",
     "dir tree"
   ],
-  "author": "Mawni Maghsoudlou",
+  "author": "Mani Maghsoudlou",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mawni/dir-tree-nodejs/issues"
+    "url": "https://github.com/manidlou/dir-tree-nodejs/issues"
   },
-  "homepage": "https://github.com/mawni/dir-tree-nodejs#readme",
+  "homepage": "https://github.com/manidlou/dir-tree-nodejs#readme",
   "dependencies": {
     "archy": "^1.0.0",
     "async": "^2.1.2",
