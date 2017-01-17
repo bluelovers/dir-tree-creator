@@ -1,6 +1,6 @@
 {
   "name": "dir-tree-creator",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "simple directory tree structure creator based on the given root path",
   "main": "dir-tree-creator.js",
   "repository": {
