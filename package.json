@@ -1,11 +1,11 @@
 {
   "name": "dir-tree-creator",
   "version": "2.0.1",
-  "description": "simple directory tree structure creator based on the given root path",
+  "description": "npm like directory tree structure creator based on the given root path",
   "main": "dir-tree-creator.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manidlou/dir-tree-nodejs.git"
+    "url": "git+https://github.com/manidlou/dir-tree-creator.git"
   },
   "keywords": [
     "directory",
@@ -15,9 +15,9 @@
   "author": "Mani Maghsoudlou",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/manidlou/dir-tree-nodejs/issues"
+    "url": "https://github.com/manidlou/dir-tree-creator/issues"
   },
-  "homepage": "https://github.com/manidlou/dir-tree-nodejs#readme",
+  "homepage": "https://github.com/manidlou/dir-tree-creator#readme",
   "dependencies": {
     "archy": "^1.0.0",
     "klaw": "^2.1.0"
