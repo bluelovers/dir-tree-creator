@@ -20,7 +20,20 @@
   "homepage": "https://github.com/manidlou/dir-tree-nodejs#readme",
   "dependencies": {
     "archy": "^1.0.0",
-    "async": "^2.1.2",
-    "glob": "^7.1.1"
+    "klaw": "^2.1.0"
+  },
+  "devDependencies": {
+    "fs-extra": "^4.0.1",
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
+  "scripts": {
+    "lint": "standard",
+    "unit": "mocha",
+    "test": "npm run lint && npm run unit"
   }
 }
