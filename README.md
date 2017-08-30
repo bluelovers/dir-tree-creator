@@ -1,9 +1,12 @@
 dir-tree-creator
 ================
 
-[![npm](https://img.shields.io/npm/v/dir-tree-creator.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/dir-tree-creator)
+[![npm](https://img.shields.io/npm/v/dir-tree-creator.svg?style=flat-square)](https://www.npmjs.com/package/dir-tree-creator)
+[![Build Status](https://travis-ci.org/manidlou/dir-tree-creator.svg?branch=master)](https://travis-ci.org/manidlou/dir-tree-creator)
 
-[Node.js](https://nodejs.org) module that creates an npm like directory tree structure of the given root path and returns the string representation of it.
+<a href="https://github.com/feross/standard" style="float: right; padding: 0 0 20px 20px;"><img src="https://cdn.rawgit.com/feross/standard/master/sticker.svg" alt="Standard JavaScript" width="100" align="right"></a>
+
+`dir-tree-creator` is a [Node.js](https://nodejs.org) module that creates an npm like directory tree structure of the given root path and returns the string representation of it.
 
 Install
 -------
