@@ -23,23 +23,36 @@ function addNode (tree, par, node) {
   }
 }
 
-function dirTree (root, label, cb) {
-  if (typeof label === 'function') {
-    cb = label
-    label = path.basename(root)
+function dirTree (root, opts, cb) {
+  if (typeof opts === 'function') {
+    cb = opts
+    opts = {}
   }
+
+  opts.label = opts.label || path.basename(root)
+  opts.hidden = typeof opts.hidden !== 'undefined' ? opts.hidden : true
+
   const paths = []
-  klaw(root).on('error', er => cb(er)).on('data', i => paths.push(i.path))
+  const filterFunc = item => {
+    if (!opts.hidden) {
+      const basename = path.basename(item)
+      return basename === '.' || basename[0] !== '.'
+    } else {
+      return true
+    }
+  }
+
+  klaw(root, { filter: filterFunc }).on('error', er => cb(er)).on('data', i => paths.push(i.path))
     .on('end', () => {
       const tree = {
-        label: label,
+        label: opts.label,
         nodes: []
       }
       for (let i = 0; i < paths.length; i += 1) {
         const p = paths[i]
         const par = path.dirname(p)
         if (par === root) {
-          addNode(tree, label, path.basename(p))
+          addNode(tree, opts.label, path.basename(p))
         } else {
           addNode(tree, path.basename(par), path.basename(p))
         }

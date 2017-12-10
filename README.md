@@ -16,10 +16,12 @@ Install
 Usage
 -----
 
-**dirtree(dir[, label], cb)**
+**dirtree(dir[, opts], cb)**
 
 - `dir` `<String>` root directory path
-- `label` `<String>` *(optional)* label for the root node of the directory tree; if nothing specified, the root path's basename will be used.
+- `opts` `<Object>` *(optional)* object with the following properties:
+  - `label` `<String>` label for the root node of the directory tree; if nothing specified, the root path's basename will be used.
+  - `hidden` `<Boolean>` determines if hidden files should be included; set to false to ignore hidden files; defaults to true.
 - `cb` `<Function>`
   - `err` `<Error | null>`
   - `dirtree` `<String>` string representation of the directory structure
@@ -39,7 +41,7 @@ dirTree('some/dir', (err, tr) => {
 ```js
 const dirTree = require('dir-tree-creator')
 
-dirTree('some/dir', 'custom label', (err, tr) => {
+dirTree('some/dir', { label: 'custom label' }, (err, tr) => {
   if (err) return console.error(err)
   console.log(tr)
 })
@@ -55,8 +57,7 @@ custom label
 ├─┬ dir1
 │ ├─┬ dir2  
 │ │ └── file2.js  
-│ └── file1.md 
+│ └── file1.md
 ├── file-under-root.js
 └── .gitignore  
 ```
-
