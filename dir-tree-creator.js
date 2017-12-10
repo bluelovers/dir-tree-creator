@@ -48,7 +48,7 @@ function dirTree (root, opts, cb) {
         label: opts.label,
         nodes: []
       }
-      for (let i = 0; i < paths.length; i += 1) {
+      for (var i = 0; i < paths.length; i += 1) {
         const p = paths[i]
         const par = path.dirname(p)
         if (par === root) {
